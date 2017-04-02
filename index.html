@@ -4,16 +4,16 @@
 
  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/bootstrap.min.cs">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 
 <body ng-app="stackOverFlowSearchApp" ng-controller="SearchController">
-    
+
     <nav class="grey darken-3">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Stack Overflow API</a>
-      
     </div>
   </nav>
 
@@ -39,7 +39,7 @@
       </div>
 
       <div class="col s8 m8 l8">
-           <div class="col s12" > 
+           <div class="col s12" >
              <a class="title" target="_blank" href="{{result.link}}" ng-bind-html="result.title"></a>
              </div>
        </div>
@@ -58,10 +58,9 @@
 <script src="lib/angular-sanitize-1.6.3.min.js"></script>
 <script type="text/javascript" src="lib/materialize.min.js"></script>
 <script src="js/app.js"></script>
-<script src="controllers/searchController.js"></script>
-<script src="services/searchService.js"></script>
-<script src="lib/angular-url-encode.min.js"></script>
+<script src="js/controllers/searchController.js"></script>
+<script src="js/services/searchService.js"></script>
+
 
 </body>
 </html>
-
