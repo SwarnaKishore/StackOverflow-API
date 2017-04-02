@@ -1,0 +1,79 @@
+.at-social-btn {
+   margin-bottom: 15px;
+ }
+.chip{
+  background-color: #d1d1d1;
+}
+
+footer .fa{
+  color: #26a69a;
+  font-size: 25px;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.collection a.collection-item{
+	color:black;
+   border-bottom: 1px solid #fbe9e7;
+}
+ .collection a.collection-item:not(.active):hover {
+      background-color: #fbe9e7; }
+
+footer {
+  margin: 30px;
+}
+.brand-logo{
+  font-family: 'Open Sans', sans-serif;
+}
+@media screen only and (max-width: 320px) {
+    .fontSize{
+        font-size: 5px;
+    }
+}
+
+
+
+.none{
+  display:none;
+}
+.post{
+  webkit-transition: background, 0.1s;
+  -moz-transition: background, 0.1s;
+  transition: background, 0.1s;
+  background: white;
+  font-size: 18px;
+  min-height: 50px;
+  line-height: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  clear: both;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 -10px;
+  cursor: pointer;
+  border-radius: 3px;
+  position: relative;
+}
+.title {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #534540;
+  margin: 0px;
+  margin-bottom: 3px;
+}
+
+.post:hover{
+  background-color: #e6e6e6;
+
+}
+
+
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly])
+{
+box-shadow: 0 1px 0 0 #90a4ae;
+    border-bottom: 1px solid #90a4ae;
+}

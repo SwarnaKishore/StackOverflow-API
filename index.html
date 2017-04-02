@@ -1,0 +1,67 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="css/index.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body ng-app="stackOverFlowSearchApp" ng-controller="SearchController">
+    
+    <nav class="grey darken-3">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Stack Overflow API</a>
+      
+    </div>
+  </nav>
+
+   <div class="row container">
+    <form class="col m12 s12">
+      <div class="row">
+        <div class="input-field col m12 s12">
+          <input id="icon_prefix" type="text" class="validate" ng-model="input.search" ng-keypress="checkIfEnterKeyWasPressed($event)">
+          <label for="icon_prefix">Search Criteria</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="container" ng-show="showTopQuestions" ng-repeat="result in resultSet.data.items">
+  <div class="row post">
+
+      <div class="col s2 m2 l2">
+       <a style="cursor:auto" href="#">
+         	 <div class="chip" style="border-width: 1px;"><i class="material-icons" style="font-size: 13px;">navigation</i>{{result.score}}</div>
+         </a>
+      </div>
+
+      <div class="col s8 m8 l8">
+           <div class="col s12" > 
+             <a class="title" target="_blank" href="{{result.link}}" ng-bind-html="result.title"></a>
+             </div>
+       </div>
+
+     <div class="col s2 m2 l2">
+     <a style="cursor:pointer" href="{{result.owner.link}}" target="_blank">
+     <img src="{{result.owner.profile_image}}" class="circle"width="45"></a>
+    </div>
+
+  </div>
+  </div>
+
+
+<script type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
+<script src="lib/angular-1.6.3.min.js"></script>
+<script src="lib/angular-sanitize-1.6.3.min.js"></script>
+<script type="text/javascript" src="lib/materialize.min.js"></script>
+<script src="js/app.js"></script>
+<script src="controllers/searchController.js"></script>
+<script src="services/searchService.js"></script>
+<script src="lib/angular-url-encode.min.js"></script>
+
+</body>
+</html>
+
