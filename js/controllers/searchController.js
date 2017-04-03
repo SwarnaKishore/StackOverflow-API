@@ -1,5 +1,5 @@
 
-   stackOverFlowSearchApp.controller('SearchController',function ($scope, SearchService, $log)
+   api.controller('SearchController',function ($scope, SearchService, $log)
    {
 
    	$scope.showTopQuestions = false;

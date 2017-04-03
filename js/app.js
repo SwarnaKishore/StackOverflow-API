@@ -1,2 +1,2 @@
 
-var stackOverFlowSearchApp = angular.module('stackOverFlowSearchApp',['ngSanitize'])
+var api = angular.module('api',['ngSanitize','ngRoute'])
