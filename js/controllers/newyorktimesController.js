@@ -16,15 +16,15 @@
         }
       };
 
-      $scope.yearChanged = function(year){
-         $scope.selectedYear = year;
-         fetchQueryResults();
-         $scope.showArticles = true;
-      }
+  //    $scope.yearChanged = function(year){
+  //       $scope.selectedYear = year;
+   //      fetchQueryResults();
+   //      $scope.showArticles = true;
+     // }
 
       function fetchQueryResults()
       {
-        newyorktimesService.getRequestedResults($scope.searchString, $scope.selectedYear).then(function(apiResponse)
+        newyorktimesService.getRequestedResults($scope.searchString).then(function(apiResponse)
         {
             for(i = 0; i < apiResponse.data.response.docs.length; i++)
             {
@@ -32,7 +32,7 @@
               var article = {};
               article.title = item.headline.main;
               article.url = item.web_url;
-              article.date = item.pub_date;
+              article.date = moment(item.pub_date).format('MMMM Do YYYY');
               article.paragraph = getArticleParagraph(item);
               $scope.articles[i] = article;
             }

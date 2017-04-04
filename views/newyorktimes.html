@@ -1,12 +1,13 @@
  <div>
-  <div class="row container">
+  
+  <div class="row">
    <form class="col m12 s12">
      <div class="row">
        <div class="input-field col m12 s12">
          <input id="icon_prefix" type="text" class="validate" ng-model="searchString" ng-keypress="checkIfEnterKeyWasPressed($event)">
          <label for="icon_prefix">Search articles</label>
-         <p class="range-field">
-		      	<input type="range" id="rangeslider" min="1850" max="2017" value="1850" onchange="yearChanged(this.value);"/>
+       <!--  <p class="range-field">
+		      	<input type="range" id="rangeslider" min="1850" max="2017" value="1850" onchange="yearChanged(this.value);"/>-->
 		    	</p>
        </div>
      </div>
@@ -15,14 +16,25 @@
  			    
 		   		
 
-  	
+<div ng-show="showArticles" ng-repeat="article in articles">
 
-
-<div class="container" ng-show="showArticles" ng-repeat="article in articles">
- 
-
-  {{article.title}}
-	{{article.date}}
-
-
+              <div class="post-preview">
+                    <a href="{{article.url}}" target="_blank">
+                        <p class="post-title">
+                           {{article.title}}
+                        </p>
+                    </a>
+                      <div class="row">
+                        <div class="col">
+                            <i class="material-icons timerIcon">av_timer</i>
+                        </div>
+                        <div class="col" style="font-family: 'Delius', cursive;">
+                        {{article.date}}
+                        </div>
+                      </div>
+                    <p class="paragraph">
+                          {{article.paragraph}}
+                    </p>
+              </div>
+      <hr>
 </div>

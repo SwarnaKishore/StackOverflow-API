@@ -1,7 +1,7 @@
 
    codeWalkThrough.controller('stackoverflowController',function ($scope, stackoverflowService, $log)
    {
-    $scope.input.search = "";
+    $scope.inputSearch = "";
    	$scope.showTopQuestions = false;
 
    	$scope.checkIfEnterKeyWasPressed = function($event){
@@ -13,7 +13,7 @@
   	};
 
    	function fetchResults(){
-	    stackoverflowService.getRequestedResults($scope.input.search).then(function(apiResponse)
+	    stackoverflowService.getRequestedResults($scope.inputSearch).then(function(apiResponse)
 	      {
 	        $scope.results = apiResponse;
 	      });
