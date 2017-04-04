@@ -12,6 +12,6 @@ codeWalkThrough.config(function($routeProvider, $locationProvider) {
           controller: 'newyorktimesController'
             }).
       otherwise({
-         redirectTo: '/'
+         redirectTo: '/stackoverflow'
             });    
 });

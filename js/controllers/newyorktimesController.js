@@ -1,6 +1,17 @@
 
    codeWalkThrough.controller('newyorktimesController',function ($scope, newyorktimesService,  $log)
    {
+      
+      $scope.setArticleTabActive = function() 
+      {
+        $('#stackId').removeClass('tabsActive');
+        $('#articleId').addClass('tabsActive');
+      }
+       $scope.setStackTabActive = function() 
+      {
+        $('#articleId').removeClass('tabsActive');
+        $('#stackId').addClass('tabsActive');
+      }
       $scope.selectedYear = 1850;
       $scope.searchString = "";
       $scope.showArticles = false;
