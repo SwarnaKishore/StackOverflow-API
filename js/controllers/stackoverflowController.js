@@ -1,21 +1,21 @@
 
    codeWalkThrough.controller('stackoverflowController',function ($scope, stackoverflowService, $log)
    {
+    $scope.input.search = "";
    	$scope.showTopQuestions = false;
 
    	$scope.checkIfEnterKeyWasPressed = function($event){
     var keyCode = $event.which || $event.keyCode;
     if (keyCode === 13) {
-       fetchResults($scope.input.search);
+       fetchResults();
        $scope.showTopQuestions = true;
    		}
   	};
 
-   	function fetchResults(searchString){
-
-	    stackoverflowService.getRequestedResults(searchString).then(function(resultSet)
+   	function fetchResults(){
+	    stackoverflowService.getRequestedResults($scope.input.search).then(function(apiResponse)
 	      {
-	        $scope.resultSet = resultSet
+	        $scope.results = apiResponse;
 	      });
    	}
 

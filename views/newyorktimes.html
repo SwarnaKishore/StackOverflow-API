@@ -5,9 +5,9 @@
        <div class="input-field col m12 s12">
          <input id="icon_prefix" type="text" class="validate" ng-model="searchString" ng-keypress="checkIfEnterKeyWasPressed($event)">
          <label for="icon_prefix">Search articles</label>
-         <!--<p class="range-field">
-		      		<input type="range" id="rangeslider" min="1800" max="2017" onchange="updateInputRange(this.value);"/>
-		    	</p>-->
+         <p class="range-field">
+		      	<input type="range" id="rangeslider" min="1850" max="2017" value="1850" onchange="yearChanged(this.value);"/>
+		    	</p>
        </div>
      </div>
    </form>
@@ -18,10 +18,11 @@
   	
 
 
-<div class="container" ng-show="showArticles" ng-repeat="result in searchQuery.data.data.response.docs">
+<div class="container" ng-show="showArticles" ng-repeat="article in articles">
  
 
-	{{result.headline.main}}
+  {{article.title}}
+	{{article.date}}
 
 
 </div>
