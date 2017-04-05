@@ -6,15 +6,14 @@
        <div class="input-field col m8 s12 offset-s2">
          <input id="icon_prefix" type="text" class="validate" ng-model="searchString" ng-keypress="checkIfEnterKeyWasPressed($event)">
          <label for="icon_prefix">Search articles</label>
+         <div class="row" style="margin-top:40px;">
+            <div class="col s1">{{startYear}} </div>
+            <div class="col s10" id="yearSlider"> </div>
+            <div class="col s1">{{endYear}}</div>
+         </div>
        </div>
      </div>
-     <div class="row">
-       <div class="col m8 s12 offset-s2">
-       <p class="range-field">
-            <input type="range" id="rangeslider" min="1850" max="2017"/>
-        </p>
-       </div>
-     </div>
+
    </form>
  </div>
  			    

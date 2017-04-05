@@ -1,11 +1,13 @@
 
-   codeWalkThrough.controller('newyorktimesController',function ($scope, newyorktimesService,  $log)
+   codeWalkThrough.controller('newyorktimesController',function ($scope, newyorktimesService, $log, $timeout)
    {
   
-      $scope.selectedYear = 1850;
+      $scope.startYear = 1850;
+      $scope.endYear = 2017;
       $scope.searchString = "";
       $scope.showArticles = false;
       $scope.articles = [];
+      $scope.lastSearchAt = "";
 
       $scope.checkIfEnterKeyWasPressed = function($event)
       {
@@ -17,16 +19,16 @@
         }
       };
 
-         $scope.yearChanged = function(year)
-         {
-         $scope.selectedYear = year;
-         fetchQueryResults();
-         $scope.showArticles = true;
-         }
+      $scope.yearSelectionChanged = function()
+      {
+        fetchQueryResults();
+        $scope.showArticles = true;
+      }
 
       function fetchQueryResults()
       {
-        newyorktimesService.getRequestedResults($scope.searchString, $scope.selectedYear).then(function(apiResponse)
+        $scope.lastSearchAt = new Date();
+        newyorktimesService.getRequestedResults($scope.searchString, $scope.startYear, $scope.endYear).then(function(apiResponse)
         {
             for(i = 0; i < apiResponse.data.response.docs.length; i++)
             {
@@ -61,6 +63,38 @@
 
       }
 
+      var slider = document.getElementById('yearSlider');
+      noUiSlider.create(slider, {
+         start: [1850, 2017],
+         connect: true,
+         step: 1,
+         range: {
+           'min': 1850,
+           'max': 2017
+         },
+         format: wNumb({
+           decimals: 0
+         })
+      });
+
+      slider.noUiSlider.on('update', function( values, handle )
+      {
+        $timeout(function() 
+        {
+          $scope.startYear = values[0];
+          $scope.endYear = values[1];
+        }, 100);
+
+        $timeout(function() 
+        {
+           if($scope.lastSearchAt == "" || 
+            ((new Date().getTime() - $scope.lastSearchAt.getTime())/1000 > 2))
+           {
+              $scope.yearSelectionChanged();
+           }
+        }, 1000)
+      });
+      
 
    });
       
