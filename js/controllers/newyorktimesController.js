@@ -1,17 +1,7 @@
 
    codeWalkThrough.controller('newyorktimesController',function ($scope, newyorktimesService,  $log)
    {
-      
-      $scope.setArticleTabActive = function() 
-      {
-        $('#stackId').removeClass('tabsActive');
-        $('#articleId').addClass('tabsActive');
-      }
-       $scope.setStackTabActive = function() 
-      {
-        $('#articleId').removeClass('tabsActive');
-        $('#stackId').addClass('tabsActive');
-      }
+  
       $scope.selectedYear = 1850;
       $scope.searchString = "";
       $scope.showArticles = false;
@@ -27,15 +17,16 @@
         }
       };
 
-  //    $scope.yearChanged = function(year){
-  //       $scope.selectedYear = year;
-   //      fetchQueryResults();
-   //      $scope.showArticles = true;
-     // }
+         $scope.yearChanged = function(year)
+         {
+         $scope.selectedYear = year;
+         fetchQueryResults();
+         $scope.showArticles = true;
+         }
 
       function fetchQueryResults()
       {
-        newyorktimesService.getRequestedResults($scope.searchString).then(function(apiResponse)
+        newyorktimesService.getRequestedResults($scope.searchString, $scope.selectedYear).then(function(apiResponse)
         {
             for(i = 0; i < apiResponse.data.response.docs.length; i++)
             {

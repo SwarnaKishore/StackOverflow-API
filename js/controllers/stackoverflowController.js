@@ -5,15 +5,16 @@
    	$scope.showTopQuestions = false;
 
    	$scope.checkIfEnterKeyWasPressed = function($event){
-    var keyCode = $event.which || $event.keyCode;
-    if(keyCode === 13) {
-       fetchResults();
-       $scope.showTopQuestions = true;
-   		}
+      var keyCode = $event.which || $event.keyCode;
+      if(keyCode === 13) {
+         fetchResults();
+         $scope.showTopQuestions = true;
+     		}
   	};
 
     $('input.autocomplete').autocomplete({
     data: {
+      "C#":null,
       "JavaScript": null,
       "AngularJs": null,
       "CSS": null,
@@ -24,7 +25,14 @@
       "React" : null,
       "jQuery" : null,
       "Wordpress" : null,
-      "Array" : null
+      "Array" : null,
+      "Java" : null,
+      "HTML" : null,
+      "Android" : null,
+      "IOS" : null,
+      "ASP.NET" : null,
+      "SQL" : null,
+      "Linux" : null
     },
     limit: 20,
     onAutocomplete: function(val) {
