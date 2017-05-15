@@ -5,49 +5,69 @@
   <link href="https://fonts.googleapis.com/css?family=Clicker+Script|Tangerine" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/nouislider.min.css">
-  <link rel="stylesheet" href="css/nouisliderMaterialize.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-app="codeWalkThrough" ng-controller="mainController">
+<body ng-app="codeWalkThrough" ng-controller="stackoverflowController">
 
   <nav class="grey darken-3">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center"> Code Walk Through</a>
+      <a href="#" class="brand-logo center"> Stack Overflow Search API</a>
     </div>
   </nav>
 
 
-<div class="row container">
-    <div class="col s12 m12">
-      <ul class="ultabs z-depth-1">
-        <li class="litab col s6"><a id="stackId" class="tabslink tabsActive" ng-click="setStackTabActive()" href="/#stackoverflow">Stack Overflow API Search</a></li>
-        <li class="litab col s6"> <a id="nytimesId" class="tabslink" ng-click="setArticleTabActive()" href="/#newyorktimes"> New York Times API Search</a></li>
-      </ul>
-    </div>
-</div>
-
 
 <div class="container">
-     <div ng-view></div>
+     <div>
+  <div class="row">
+   <form class="col m12 s12">
+     <div class="row">
+       <div class="input-field col m8 s12 offset-s2">
+         <input type="text" id="autocomplete-input" class="validate autocomplete" ng-model="inputSearch" ng-keypress="checkIfEnterKeyWasPressed($event)">
+         <label for="autocomplete-input">Search Criteria</label>
+       </div>
+     </div>
+   </form>
+ </div>
+
+<div class="container" ng-show="showTopQuestions" ng-repeat="result in results.data.items">
+ <div class="row post">
+     <div class="col s2 m2 l2">
+      <a style="cursor:auto" href="#">
+          <div class="chip"><i class="material-icons" style="font-size: 13px;">navigation</i>{{result.score}}</div>
+        </a>
+     </div>
+
+     <div class="col s8 m8 l8">
+          <div class="col s12" >
+            <a class="title" target="_blank" href="{{result.link}}" ng-bind-html="result.title"></a>
+            </div>
+      </div>
+
+    <div class="col s2 m2 l2">
+    <a style="cursor:pointer" href="{{result.owner.link}}" target="_blank">
+    <img src="{{result.owner.profile_image}}" class="circle" width="45"></a>
+   </div>
+
+ </div>
+</div>
+</div>
+
 </div>     
 
 
 <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"></script>
 <script src="lib/angular-1.6.3.min.js"></script>
 <script src="lib/angular-sanitize-1.6.3.min.js"></script>
 <script type="text/javascript" src="lib/materialize.min.js"></script>
-<script type="text/javascript" src="lib/angular-route-1.6.3.min.js"></script>
-<script type="text/javascript" src="lib/nouislider.min.js"></script>
-<script type="text/javascript" src="lib/nouisliderMaterialize.js"></script>
 <script src="js/app.js"></script>
-<script src="js/controllers/mainController.js"></script>
 <script src="js/controllers/stackoverflowController.js"></script>
-<script src="js/controllers/newyorktimesController.js"></script>
 <script src="js/services/stackoverflowService.js"></script>
-<script src="js/services/newyorktimesService.js"></script>
-<script src="js/routes.js"></script>
 <script src="lib/moment.js"></script>
 
 </body>

@@ -1,2 +1,2 @@
-var codeWalkThrough = angular.module('codeWalkThrough',['ngRoute','ngSanitize']);
+var codeWalkThrough = angular.module('codeWalkThrough',['ngSanitize']);
 
