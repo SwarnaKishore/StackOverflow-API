@@ -155,3 +155,10 @@ color:#333;
    .input-field input[type=text]:focus + label {
      color: #333;
    }
+
+   .description-styles
+   {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 3%;
+   }
